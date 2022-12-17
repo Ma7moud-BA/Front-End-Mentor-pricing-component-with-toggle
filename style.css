@@ -1,0 +1,232 @@
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+  :root {
+      --primary-Linear-Gradient-1: hsl(236, 72%, 79%);
+      --primary-Linear-Gradient-2: hsl(237, 63%, 64%);
+      --Very-Light-Grayish-Blue: hsl(240, 78%, 98%);
+      --Light-Grayish-Blue: hsl(234, 14%, 74%);
+      --Grayish-Blue: hsl(233, 13%, 49%);
+      --Dark-Grayish-Blue: hsl(232, 13%, 33%);
+  }
+
+  .attribution {
+      font-size: 11px;
+      text-align: center;
+  }
+
+  .attribution a {
+      color: hsl(228, 45%, 44%);
+  }
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+  }
+
+  body {
+      Font-size: 15px;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      background-color: var(--Very-Light-Grayish-Blue);
+      background-image: url(/images/bg-top.svg), url(/images/bg-bottom.svg);
+      background-position: right top, left bottom;
+      background-repeat: no-repeat;
+  }
+
+  .container {
+      max-width: 1200px;
+      margin: 0 auto;
+
+
+
+
+  }
+
+  .wrapper {
+      padding: 60px 20px;
+      text-align: center;
+  }
+
+  .title {
+      font-size: 2rem;
+      color: var(--Grayish-Blue);
+  }
+
+  .pricing {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--Light-Grayish-Blue);
+      padding: 50px 0;
+  }
+
+  .switch {
+      display: inline-block;
+      width: 60px;
+      height: 32px;
+      position: relative;
+      cursor: pointer;
+      margin: 0 20px;
+
+  }
+
+  .slider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background: linear-gradient(180deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+      border-radius: 32px;
+  }
+
+  .slider:hover {
+      background: var(--primary-Linear-Gradient-1)
+  }
+
+  .slider::before {
+      /* here is the moving part inside the switch */
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+
+      bottom: 4px;
+
+      left: 4px;
+      background-color: white;
+      transition: all .3s ease-in-out;
+  }
+
+  input:checked+.slider::before {
+      transform: translateX(26px);
+
+  }
+
+  .pricing-main {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+  }
+
+  .pricing-box {
+      background-color: #fff;
+      padding: 50px 40px;
+      border-radius: 12px;
+      align-self: center;
+      /* using align self here is important because when we make the middle card bigger the grid system will make the align cell streached   */
+
+  }
+
+  .box-title {
+      color: var(--Grayish-Blue);
+      margin-bottom: 1rem;
+      font-size: 18px;
+  }
+
+  .price-annually,
+  .price-monthly {
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      color: var(--Dark-Grayish-Blue);
+
+  }
+
+
+
+  .price {
+      font-size: 3.75rem;
+  }
+
+  .pricing-box ul {
+      margin: 20px 0 40px 0;
+  }
+
+  .pricing-box ul li {
+      list-style-type: none;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--Light-Grayish-Blue);
+      color: var(--Dark-Grayish-Blue);
+  }
+
+  .pricing-box ul li:first-child {
+      border-top: 1px solid var(--Light-Grayish-Blue);
+
+  }
+
+  .pricing-box a {
+      text-decoration: none;
+      display: block;
+      padding: 10px 0;
+      color: #fff;
+      opacity: 90%;
+      background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+      border-radius: 6px;
+      text-transform: uppercase;
+  }
+
+  .pricing-box a:hover {
+      background: transparent;
+      color: var(--Grayish-Blue);
+      border: 1px solid var(--Grayish-Blue);
+  }
+
+  .pricing-box.featured {
+      background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+      padding: 70px 40px;
+      /* added padding to make the middle card looks bigger */
+      transform: scale(1.05);
+  }
+
+  .pricing-box.featured p {
+      color: #fff;
+  }
+
+  .pricing-box.featured ul li {
+      color: #fff;
+
+  }
+
+  .pricing-box.featured a {
+      background: #fff;
+      color: var(--Grayish-Blue);
+  }
+
+  .pricing-box.featured a:hover {
+      background: transparent;
+      border-color: #fff;
+      color: #fff;
+  }
+
+  @media only screen and (max-width:376px) {
+      .pricing-main {
+          grid-template-columns: 1fr;
+          row-gap: 40px;
+      }
+
+      body {
+          Font-size: 15px;
+          font-family: 'Montserrat', sans-serif;
+          min-height: 100vh;
+          background-color: var(--Very-Light-Grayish-Blue);
+          background-image: url(/images/bg-top.svg), url(/images/bg-bottom.svg);
+          background-position: top right, left bottom;
+          background-position-x: 240px;
+          background-repeat: no-repeat;
+      }
+
+      .box-title {
+          font-size: 18px;
+      }
+
+      .pricing-box.featured {
+          background: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+          transform: scale(1);
+      }
+  }
